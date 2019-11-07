@@ -3,10 +3,8 @@
   <!-- Run the ekf for map to odom config -->
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_with_gps" clear_params="true">
     <rosparam command="load" file="$(find pose_to_odom)/config/ekf_localization.yaml" />
-    <!--  Placeholder for output topic remapping
-    <remap from="odometry/filtered" to=""/>
-    <remap from="accel/filtered" to=""/>
-    -->
+    <remap from="odometry/filtered" to="/crazyflie/odom_filtered"/>
+    <!-- <remap from="accel/filtered" to="/crazyflie/accel_filtered"/> -->
   </node>
 
 </launch>
