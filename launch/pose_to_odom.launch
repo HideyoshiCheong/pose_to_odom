@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="pose_to_odom" type="pose_to_odom" name="pose_to_odom" clear_params="true">
+    <rosparam command="load" file="$(find pose_to_odom)/param/covariances.yaml" />
+  </node>
+</launch>

@@ -7,10 +7,10 @@
 #include "geometry_msgs/Twist.h"
 #include "tf/transform_broadcaster.h"
 
-class msg_adapter_node
+class pose_to_odom_node
 {
 public:
-  msg_adapter_node() // Class constructor
+  pose_to_odom_node() // Class constructor
   {
     ros::NodeHandle nh_; // Public nodehandle for pub-sub
     ros::NodeHandle nh_private_("~"); // Private nodehandle for handling parameters
@@ -18,7 +18,7 @@ public:
     uint32_t seq_ = 0;
 
     // Init subscribers
-    pose_sub_ = nh_.subscribe("/vrpn_client_node/crazyflie2/pose", 100, &msg_adapter_node::odom_callback, this);
+    pose_sub_ = nh_.subscribe("/vrpn_client_node/crazyflie2/pose", 100, &pose_to_odom_node::odom_callback, this);
 
     // Init publishers
     pose_stamped_pub_ = nh_.advertise<nav_msgs::Odometry>("/crazyflie/odom", 100, false);
@@ -104,9 +104,9 @@ protected:
 
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "msg_adapter");
+  ros::init(argc, argv, "pose_to_odom");
 
-  msg_adapter_node adapter;
+  pose_to_odom_node adapter;
 
   ros::spin();
 }

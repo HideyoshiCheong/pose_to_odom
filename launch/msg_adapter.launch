@@ -1,5 +1,0 @@
-<launch>
-  <node pkg="msg_adapter" type="msg_adapter" name="msg_adapter" clear_params="true">
-    <rosparam command="load" file="$(find msg_adapter)/param/covariances.yaml" />
-  </node>
-</launch>

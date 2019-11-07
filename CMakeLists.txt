@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(msg_adapter)
+project(pose_to_odom)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
@@ -22,8 +22,8 @@ include_directories(
 )
 
 # One per executable!
-add_executable(msg_adapter src/msg_adapter.cpp)
-target_link_libraries(msg_adapter ${catkin_LIBRARIES})
+add_executable(pose_to_odom src/pose_to_odom.cpp)
+target_link_libraries(pose_to_odom ${catkin_LIBRARIES})
 
 install(DIRECTORY launch
     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
